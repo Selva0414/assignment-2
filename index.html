@@ -1,0 +1,1015 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Compliance Solutions for Research Analysts</title>
+  </head>
+  <style>
+    * {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  --primary-color: #4F46E5;
+  --primary-dark: #4338CA;
+  --primary-light: #EEF2FF;
+  --text-dark: #1F2937;
+  --text-gray: #6B7280;
+  --text-light: #9CA3AF;
+  --bg-white: #FFFFFF;
+  --bg-light: #F9FAFB;
+  --border-color: #E5E7EB;
+  --spacing-xs: 0.5rem;
+  --spacing-sm: 1rem;
+  --spacing-md: 1.5rem;
+  --spacing-lg: 2rem;
+  --spacing-xl: 3rem;
+  --spacing-2xl: 4rem;
+}
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+  line-height: 1.6;
+  color: var(--text-dark);
+  background-color: var(--bg-white);
+  overflow-x: hidden;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 var(--spacing-md);
+}
+
+.header {
+  background: var(--bg-white);
+  border-bottom: 1px solid var(--border-color);
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+}
+
+.nav-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: var(--spacing-sm) 0;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-xs);
+  font-weight: 600;
+  font-size: 1.25rem;
+  color: var(--text-dark);
+}
+
+.logo img {
+  height: 32px;
+  width: auto;
+  display: block;
+}
+
+.nav-menu {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-lg);
+}
+
+.nav-link {
+  color: var(--text-gray);
+  text-decoration: none;
+  font-size: 0.95rem;
+  font-weight: 500;
+  transition: color 0.3s;
+}
+
+.nav-link img {
+  display: none;
+}
+
+.mobile-menu-close {
+  display: none;
+}
+
+.nav-link:hover {
+  color: var(--primary-color);
+}
+
+.btn {
+  padding: 0.65rem 1.5rem;
+  border-radius: 8px;
+  font-size: 0.95rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s;
+  border: none;
+  white-space: nowrap;
+}
+
+.btn-primary {
+  background: var(--primary-color);
+  color: white;
+}
+
+.btn-primary:hover {
+  background: var(--primary-dark);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(79, 70, 229, 0.3);
+}
+
+.btn-secondary {
+  background: white;
+  color: var(--primary-color);
+  border: 2px solid var(--primary-color);
+}
+
+.btn-secondary:hover {
+  background: var(--primary-light);
+  transform: translateY(-2px);
+}
+
+.ripple {
+  position: absolute;
+  border-radius: 50%;
+  transform: scale(0);
+  background: rgba(79,70,229,0.2);
+  animation: ripple 0.6s linear;
+  pointer-events: none;
+}
+
+@keyframes ripple {
+  to { transform: scale(4); opacity: 0; }
+}
+
+.desktop-contact {
+  display: block;
+}
+
+.mobile-contact {
+  display: none;
+  width: 100%;
+  margin-top: var(--spacing-md);
+}
+
+.mobile-menu-toggle {
+  display: none;
+  flex-direction: column;
+  gap: 5px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: var(--spacing-xs);
+}
+
+.mobile-menu-toggle span {
+  width: 25px;
+  height: 3px;
+  background: var(--text-dark);
+  border-radius: 3px;
+  transition: all 0.3s;
+}
+
+.hero {
+  padding: var(--spacing-2xl) 0;
+  background: linear-gradient(135deg, #F9FAFB 0%, #EEF2FF 100%);
+}
+
+.hero-content {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--spacing-xl);
+  align-items: center;
+}
+
+.hero h1 {
+  font-size: 3rem;
+  font-weight: 800;
+  line-height: 1.2;
+  color: var(--text-dark);
+  margin-bottom: var(--spacing-md);
+}
+
+.text-primary {
+  color: var(--primary-color);
+}
+
+/* underline image under the word "Compliance" */
+.hero h1 .text-primary {
+  position: relative;
+  display: inline-block;
+}
+
+.hero h1 .text-primary::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: -6px;
+  height: 14px;
+  background: url('./underline-Vector.png') no-repeat center bottom;
+  background-size: contain;
+  pointer-events: none;
+}
+
+.hero-description {
+  color: var(--text-gray);
+  font-size: 1.05rem;
+  line-height: 1.7;
+  margin-bottom: var(--spacing-lg);
+}
+
+.features-list {
+  list-style: none;
+  margin-bottom: var(--spacing-lg);
+}
+
+.features-list li {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-sm);
+  margin-bottom: var(--spacing-sm);
+  font-size: 0.95rem;
+  color: var(--text-dark);
+  font-weight: 500;
+}
+
+.check-icon {
+  flex-shrink: 0;
+}
+
+.hero-buttons {
+  display: flex;
+  gap: var(--spacing-md);
+  flex-wrap: wrap;
+}
+
+.hero-image {
+  position: relative;
+}
+
+.hero-illustration {
+  position: relative;
+  height: 500px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-image: url('./Banner Image.png');
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: contain;
+}
+
+.illustration-bg {
+  position: absolute;
+  width: 400px;
+  height: 400px;
+  background: linear-gradient(135deg, #818CF8 0%, #4F46E5 100%);
+  border-radius: 50% 50% 0 50%;
+  opacity: 0.1;
+  animation: float 6s ease-in-out infinite;
+}
+
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0) rotate(0deg);
+  }
+  50% {
+    transform: translateY(-20px) rotate(5deg);
+  }
+}
+
+.rating-badge {
+  position: absolute;
+  top: 20%;
+  right: 10%;
+  background: white;
+  padding: var(--spacing-md);
+  border-radius: 12px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  animation: slideInRight 0.6s ease-out;
+}
+
+@keyframes slideInRight {
+  from {
+    opacity: 0;
+    transform: translateX(50px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+.rating-stars {
+  color: #FFC107;
+  font-size: 1.2rem;
+  margin-bottom: var(--spacing-xs);
+}
+
+.rating-score {
+  font-size: 2rem;
+  font-weight: 800;
+  color: var(--text-dark);
+}
+
+.rating-text {
+  font-size: 0.85rem;
+  color: var(--text-gray);
+}
+
+.trust-badge {
+  position: absolute;
+  bottom: 15%;
+  left: 5%;
+  background: white;
+  padding: var(--spacing-md);
+  border-radius: 12px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+  display: flex;
+  gap: var(--spacing-md);
+  align-items: center;
+  animation: slideInLeft 0.6s ease-out 0.3s both;
+}
+
+@keyframes slideInLeft {
+  from {
+    opacity: 0;
+    transform: translateX(-50px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+.trust-text {
+  text-align: left;
+}
+
+.trust-label {
+  font-size: 0.8rem;
+  color: var(--text-gray);
+}
+
+.trust-count {
+  font-size: 1.8rem;
+  font-weight: 800;
+  color: var(--text-dark);
+  line-height: 1;
+}
+
+.trust-subtitle {
+  font-size: 0.85rem;
+  color: var(--text-gray);
+}
+
+.compliance-section {
+  padding: var(--spacing-2xl) 0;
+  background: var(--bg-white);
+  position: relative;
+}
+
+.compliance-content {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--spacing-xl);
+  align-items: center;
+}
+
+.illustration-wrapper {
+  position: relative;
+  height: 400px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.chart-illustration {
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(135deg, #EEF2FF 0%, #F9FAFB 100%);
+  border-radius: 20px;
+  position: relative;
+  overflow: hidden;
+}
+
+.left-heading {
+  font-size: 3.2rem;
+  font-weight: 800;
+  color: var(--text-dark);
+  line-height: 1.05;
+  margin-bottom: 1rem;
+}
+
+.heading-arrow{
+  position: absolute;
+  left: 18%;
+  top: 4.5rem;
+  width: 90px;
+  transform: rotate(6deg);
+  opacity: 0.95;
+  z-index: 5;
+}
+
+.compliance-section::after{
+  /* chevrons bottom-left using vector1.png */
+  content: '';
+  position: absolute;
+  left: 2%;
+  bottom: 4%;
+  width: 120px;
+  height: 40px;
+  background-image: url('./vector1.png');
+  background-repeat: no-repeat;
+  background-size: contain;
+  opacity: 0.9;
+  pointer-events: none;
+}
+
+.chart-illustration .section-img{
+  max-width: 86%;
+  height: auto;
+  display: block;
+  margin: 0 auto;
+  position: relative;
+  z-index: 2;
+}
+
+.chart-illustration .vector1{
+  position: absolute;
+  left: 8%;
+  top: 12%;
+  width: 36%;
+  opacity: 0.12;
+  z-index: 1;
+}
+
+.chart-illustration .arrow-img{
+  position: absolute;
+  right: 6%;
+  top: 62%;
+  width: 70px;
+  transform: rotate(8deg);
+  z-index: 3;
+}
+
+.chart-illustration::before {
+  content: '';
+  position: absolute;
+  width: 80%;
+  height: 80%;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: linear-gradient(135deg, #818CF8 0%, #4F46E5 100%);
+  opacity: 0.15;
+  border-radius: 15px;
+}
+
+.compliance-text h2 {
+  font-size: 2.5rem;
+  font-weight: 800;
+  line-height: 1.2;
+  margin-bottom: var(--spacing-md);
+}
+
+.section-description {
+  color: var(--text-gray);
+  font-size: 1rem;
+  line-height: 1.7;
+  margin-bottom: var(--spacing-xl);
+}
+
+.benefits-grid {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-lg);
+}
+
+.benefit-card {
+  background: #FFFFFF;
+  border-radius: 12px;
+  padding: 1rem;
+  box-shadow: 0 10px 30px rgba(16,24,40,0.06);
+  border: 1px solid var(--border-color);
+}
+
+.compliance-image h2 {
+  font-size: 2.5rem;
+  font-weight: 800;
+  line-height: 1.2;
+  margin-bottom: var(--spacing-md);
+}
+
+.compliance-image .section-description {
+  margin-bottom: var(--spacing-lg);
+}
+
+.benefit-item {
+  display: flex;
+  gap: var(--spacing-md);
+  align-items: flex-start;
+}
+
+.benefit-icon {
+  flex-shrink: 0;
+  width: 48px;
+  height: 48px;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.benefit-content h3 {
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: var(--text-dark);
+  margin-bottom: var(--spacing-xs);
+}
+
+.benefit-content p {
+  color: var(--text-gray);
+  font-size: 0.95rem;
+  line-height: 1.6;
+}
+
+@media (max-width: 968px) {
+  .hero-content,
+  .compliance-content {
+    grid-template-columns: 1fr;
+  }
+
+  .left-heading {
+    font-size: 2.2rem;
+  }
+  .heading-arrow{ left: 8%; top: 6rem; width: 64px; }
+  .compliance-section::after{ left: 4%; width: 80px; bottom: 2%; }
+
+  .hero h1 {
+    font-size: 2.2rem;
+  }
+
+  .compliance-text h2 {
+    font-size: 2rem;
+  }
+
+  .hero-illustration,
+  .illustration-wrapper {
+    height: 350px;
+  }
+
+  .nav-link img {
+    display: inline-block !important;
+  }
+}
+
+@media (max-width: 768px) {
+  .nav-menu {
+    position: fixed;
+    top: 70px;
+    left: -100%;
+    width: 280px;
+    height: calc(100vh - 70px);
+    background: white;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: var(--spacing-lg);
+    gap: var(--spacing-md);
+    box-shadow: 2px 0 10px rgba(0, 0, 0, 0.1);
+    transition: left 0.3s;
+    z-index: 999;
+  }
+
+  .nav-menu.active {
+    left: 0;
+  }
+
+  .mobile-menu-close {
+    position: absolute;
+    top: var(--spacing-md);
+    right: var(--spacing-md);
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: var(--spacing-xs);
+    color: var(--text-dark);
+    display: flex !important;
+    align-items: center;
+    justify-content: center;
+    transition: color 0.3s;
+    z-index: 1000;
+  }
+
+  .mobile-menu-close:hover {
+    color: var(--primary-color);
+  }
+
+  .desktop-contact {
+    display: none;
+  }
+
+  .mobile-contact {
+    display: block;
+  }
+
+  .mobile-menu-toggle {
+    display: flex;
+  }
+
+  .mobile-menu-toggle.active span:nth-child(1) {
+    transform: rotate(45deg) translate(8px, 8px);
+  }
+
+  .mobile-menu-toggle.active span:nth-child(2) {
+    opacity: 0;
+  }
+
+  .mobile-menu-toggle.active span:nth-child(3) {
+    transform: rotate(-45deg) translate(7px, -7px);
+  }
+
+  .hero {
+    padding: var(--spacing-xl) 0;
+  }
+
+  .hero h1 {
+    font-size: 1.8rem;
+  }
+
+  .hero-description {
+    font-size: 0.95rem;
+  }
+
+  .hero-buttons {
+    flex-direction: column;
+  }
+
+  .hero-buttons .btn {
+    width: 100%;
+  }
+
+  .compliance-section {
+    padding: var(--spacing-xl) 0;
+  }
+
+  .compliance-text h2 {
+    font-size: 1.75rem;
+  }
+
+  .section-description {
+    font-size: 0.95rem;
+  }
+
+  .rating-badge {
+    top: 10%;
+    right: 5%;
+    padding: var(--spacing-sm);
+    font-size: 0.85rem;
+  }
+
+  .rating-score {
+    font-size: 1.5rem;
+  }
+
+  .trust-badge {
+    bottom: 10%;
+    left: 5%;
+    padding: var(--spacing-sm);
+  }
+
+  .trust-count {
+    font-size: 1.4rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .container {
+    padding: 0 var(--spacing-sm);
+  }
+
+  .hero h1 {
+    font-size: 1.6rem;
+  }
+
+  .compliance-text h2 {
+    font-size: 1.5rem;
+  }
+
+  .hero-illustration,
+  .illustration-wrapper {
+    height: 300px;
+  }
+
+  .illustration-bg {
+    width: 300px;
+    height: 300px;
+  }
+}
+
+  </style>
+  <body>
+    <!-- Header -->
+    <header class="header">
+      <div class="container">
+        <div class="nav-wrapper">
+          <div class="logo">
+            <img src="./Logo.png" alt="Company Logo" />
+          </div>
+          <nav class="nav-menu" id="navMenu">
+            <button class="mobile-menu-close" id="mobileMenuClose" aria-label="Close menu">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M18 6L6 18M6 6L18 18" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+            </button>
+            <a href="#home" class="nav-link">
+              <img src="./Home.png" alt="Home" style="width: 20px; height: 20px; margin-right: 8px; vertical-align: middle;" />
+              Home
+            </a>
+            <a href="#about" class="nav-link">
+              <img src="./AboutUs.png" alt="About Us" style="width: 20px; height: 20px; margin-right: 8px; vertical-align: middle;" />
+              About Us
+            </a>
+            <a href="#services" class="nav-link">
+              <img src="./Our Services.png" alt="Our Services" style="width: 20px; height: 20px; margin-right: 8px; vertical-align: middle;" />
+              Our Services
+            </a>
+            <a href="#pricing" class="nav-link">
+              <img src="./Pricing.png" alt="Pricing" style="width: 20px; height: 20px; margin-right: 8px; vertical-align: middle;" />
+              Pricing
+            </a>
+            <a href="#faq" class="nav-link">
+              <img src="./FAQ.png" alt="FAQ" style="width: 20px; height: 20px; margin-right: 8px; vertical-align: middle;" />
+              FAQ
+            </a>
+            <a href="#contact" class="nav-link">
+              <img src="./Contact.png" alt="Contact" style="width: 20px; height: 20px; margin-right: 8px; vertical-align: middle;" />
+              Contact
+            </a>
+            <button class="btn btn-primary mobile-contact">
+              <img src="./Contact-icon.png" alt="Contact" style="width: 18px; height: 18px; margin-right: 8px; vertical-align: middle;" />
+              Contact Us
+            </button>
+          </nav>
+          <button class="btn btn-primary desktop-contact">
+            <img src="./Contact-icon.png" alt="Contact" style="width: 18px; height: 18px; margin-right: 8px; vertical-align: middle;" />
+            Contact Us
+          </button>
+          <button class="mobile-menu-toggle" id="mobileMenuToggle" aria-label="Toggle menu">
+            <span></span>
+            <span></span>
+            <span></span>
+          </button>
+        </div>
+      </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+      <div class="container">
+        <div class="hero-content">
+          <div class="hero-text">
+            <h1>Simplifying <span class="text-primary">Compliance</span> For Research Analysts</h1>
+            <p class="hero-description">
+              Stay Focused On Your Insights—We'll Handle The Compliance. Our Expert Solutions Ensure Your Research Practices Meet Every Regulatory Requirement With Confidence And Ease
+            </p>
+            <ul class="features-list">
+              <li>
+                <svg class="check-icon" width="20" height="20" viewBox="0 0 20 20" fill="none">
+                  <circle cx="10" cy="10" r="10" fill="#4F46E5"/>
+                  <path d="M6 10L9 13L14 7" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+                <span>End-To-End Compliance Support</span>
+              </li>
+              <li>
+                <svg class="check-icon" width="20" height="20" viewBox="0 0 20 20" fill="none">
+                  <circle cx="10" cy="10" r="10" fill="#4F46E5"/>
+                  <path d="M6 10L9 13L14 7" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+                <span>Regulatory Filings Made Simple</span>
+              </li>
+              <li>
+                <svg class="check-icon" width="20" height="20" viewBox="0 0 20 20" fill="none">
+                  <circle cx="10" cy="10" r="10" fill="#4F46E5"/>
+                  <path d="M6 10L9 13L14 7" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+                <span>Tailored Solutions For Independent Analysts & Firms</span>
+              </li>
+            </ul>
+            <div class="hero-buttons">
+              <button class="btn btn-primary">Get Started</button>
+              <button class="btn btn-secondary">Book A Consultation</button>
+            </div>
+          </div>
+          <div class="hero-image">
+            <div class="hero-illustration">
+              <div class="illustration-bg"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Why Compliance Matters Section -->
+    <section class="compliance-section" id="about">
+      <div class="container">
+        <div class="compliance-content">
+          <div class="compliance-image">
+            <!-- large heading moved here to match the reference layout -->
+            <h2 class="left-heading">Why <span class="text-primary">Compliance Matters</span><br/>For Research Analysts</h2>
+            <!-- arrow near heading (vector2) -->
+            <!-- <img src="./vector2.png" alt="arrow" class="heading-arrow" /> -->
+            <div class="illustration-wrapper">
+              <div class="chart-illustration">
+                <!-- actual section image - replace 'Section2-image.png' with your asset -->
+                <img src="./Section2-image.png" alt="Section Illustration" class="section-img" />
+              </div>
+            </div>
+          </div>
+          <div class="compliance-text">
+            <!-- moved heading to right column to match requested layout -->
+            <!-- <h2>Why <span class="text-primary">Compliance Matters</span> For Research Analysts</h2> -->
+            <p class="section-description">
+              In Today's Regulatory Environment, Even A Small Oversight Can Lead To Penalties, Reputational Risks, And Loss Of Client Trust. We Help Research Analysts And Firms Navigate Complex Compliance Requirements So They Can Focus On Delivering High-Quality Research Without Worry.
+            </p>
+            <div class="benefits-grid">
+              <div class="benefit-card">
+                <div class="benefit-item">
+                  <div class="benefit-icon">
+                    <svg width="" height="" viewBox="" fill="none">
+                      <img src="Regulatory Clarity.png" alt="Section Illustration" class="section-img" 
+                    </svg>
+                  </div>
+                  <div class="benefit-content">
+                    <h3>Regulatory Clarity</h3>
+                    <p>We Decode Complex Compliance Rules Into Simple, Actionable Steps.</p>
+                  </div>
+                </div>
+              </div>
+
+              <div class="benefit-card">
+                <div class="benefit-item">
+                  <div class="benefit-icon">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+                      <img src="Hassle-Free Filings Clarity.png" alt="Section Illustration" class="section-img" 
+                    </svg>
+                  </div>
+                  <div class="benefit-content">
+                    <h3>Hassle-Free Filings Clarity</h3>
+                    <p>From Registration To Ongoing Reporting—We Manage It End-To-End.</p>
+                  </div>
+                </div>
+              </div>
+
+              <div class="benefit-card">
+                <div class="benefit-item">
+                  <div class="benefit-icon">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+                      <img src="Risk Protection.png" alt="Section Illustration" class="section-img" 
+                    </svg>
+                  </div>
+                  <div class="benefit-content">
+                    <h3>Risk Protection</h3>
+                    <p>Stay Ahead Of Audits, Inspections, And Compliance Gaps With Proactive Support.</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  <script>
+
+document.addEventListener('DOMContentLoaded', () => {
+  const mobileMenuToggle = document.getElementById('mobileMenuToggle');
+  const navMenu = document.getElementById('navMenu');
+  const navLinks = document.querySelectorAll('.nav-link');
+  const mobileMenuClose = document.getElementById('mobileMenuClose');
+
+  mobileMenuToggle.addEventListener('click', () => {
+    navMenu.classList.toggle('active');
+    mobileMenuToggle.classList.toggle('active');
+  });
+
+  if (mobileMenuClose) {
+    mobileMenuClose.addEventListener('click', () => {
+      navMenu.classList.remove('active');
+      mobileMenuToggle.classList.remove('active');
+    });
+  }
+
+  navLinks.forEach(link => {
+    link.addEventListener('click', () => {
+      navMenu.classList.remove('active');
+      mobileMenuToggle.classList.remove('active');
+    });
+  });
+
+  document.addEventListener('click', (e) => {
+    if (!navMenu.contains(e.target) && !mobileMenuToggle.contains(e.target) && (!mobileMenuClose || !mobileMenuClose.contains(e.target))) {
+      navMenu.classList.remove('active');
+      mobileMenuToggle.classList.remove('active');
+    }
+  });
+
+  const buttons = document.querySelectorAll('.btn');
+  buttons.forEach(button => {
+    button.addEventListener('click', (e) => {
+      const ripple = document.createElement('span');
+      const rect = button.getBoundingClientRect();
+      const size = Math.max(rect.width, rect.height);
+      const x = e.clientX - rect.left - size / 2;
+      const y = e.clientY - rect.top - size / 2;
+
+      ripple.style.width = ripple.style.height = size + 'px';
+      ripple.style.left = x + 'px';
+      ripple.style.top = y + 'px';
+      ripple.classList.add('ripple');
+
+      button.appendChild(ripple);
+
+      setTimeout(() => {
+        ripple.remove();
+      }, 600);
+    });
+  });
+
+  const observerOptions = {
+    threshold: 0.1,
+    rootMargin: '0px 0px -100px 0px'
+  };
+
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.style.opacity = '1';
+        entry.target.style.transform = 'translateY(0)';
+      }
+    });
+  }, observerOptions);
+
+  const animatedElements = document.querySelectorAll('.benefit-item, .hero-text, .hero-image');
+  animatedElements.forEach(el => {
+    el.style.opacity = '0';
+    el.style.transform = 'translateY(20px)';
+    el.style.transition = 'opacity 0.6s ease-out, transform 0.6s ease-out';
+    observer.observe(el);
+  });
+
+  const navLinksSmooth = document.querySelectorAll('a[href^="#"]');
+  navLinksSmooth.forEach(link => {
+    link.addEventListener('click', (e) => {
+      e.preventDefault();
+      const targetId = link.getAttribute('href');
+      if (targetId === '#home') {
+        window.scrollTo({
+          top: 0,
+          behavior: 'smooth'
+        });
+      } else {
+        const targetSection = document.querySelector(targetId);
+        if (targetSection) {
+          const headerOffset = 80;
+          const elementPosition = targetSection.getBoundingClientRect().top;
+          const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
+
+          window.scrollTo({
+            top: offsetPosition,
+            behavior: 'smooth'
+          });
+        }
+      }
+    });
+  });
+
+  let lastScrollTop = 0;
+  const header = document.querySelector('.header');
+
+  window.addEventListener('scroll', () => {
+    const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+
+    if (scrollTop > lastScrollTop && scrollTop > 100) {
+      header.style.transform = 'translateY(-100%)';
+    } else {
+      header.style.transform = 'translateY(0)';
+    }
+
+    lastScrollTop = scrollTop;
+  }, false);
+
+  header.style.transition = 'transform 0.3s ease-in-out';
+});
+
+    </script>
+  </body>
+</html>
